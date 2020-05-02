@@ -11,7 +11,7 @@
             <div id='sidebar' class='card mb-4'>
               <div class='card-body'>
                 <h4 class='card-title'>About</h4>
-                <span><img class='card-img' src='img/renlogo.jpg'></span>
+                <span><img class='card-img' src='/img/renlogo.jpg'></span>
                 <p class='card-text'>
                   任代購
                   <p>“任何”、“任性”，代購任何想要的，任性只賣真心覺得好的物品。</p>
@@ -50,3 +50,117 @@
             </div>
           </div> -->
         </div>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&display=swap');
+body{
+    background-color: rgb(245, 244, 243);
+}
+
+.cover{
+    background-image: url(/img/renlogo.jpg);
+    background-size:contain;
+    background-repeat: repeat;
+    border: 1px solid black;
+    height:400px;
+    width:100%;
+    position: relative;
+}
+
+.slogan{
+    background-color:rgba(0,0,0,0.2);
+    position:relative;
+    width:506px;
+    left:556px;
+    top:142px;
+    margin:0;
+    padding-top: 40px;
+    
+}
+#slogan2{
+    position:relative;
+    display:inline;
+    font-size:48px;
+    font-family: fantasy;
+    font-weight: 900;
+    color:black;
+    /* width:100%; */
+    margin:0;
+    padding:0;
+}
+
+.navbar{
+    font-family: 'ZCOOL KuaiLe', cursive;
+}
+
+.navbar.fixed_nav{
+    position: fixed;
+    /* bottom:0; */
+    top:0;
+    /* left:10px; */
+    width: 100%;  
+    z-index: 1;          
+}
+.icon-nav {
+    -ms-flex-align: center;
+    -ms-flex-direction: column;
+    -ms-flex-pack: center;
+    -webkit-box-align: center;
+    -webkit-box-direction: normal;
+    -webkit-box-orient: vertical;
+    -webkit-box-pack: center;
+    align-items: center;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    flex-direction: column;
+    height: 50px;
+    justify-content: center;
+    margin: 0 15px;
+    position: relative;
+    width: 55px;
+    color: whitesmoke;
+}
+
+.card-img:hover {
+    transform: scale(1.05, 1.05);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+  }
+
+  .list-group-item {
+    border-radius: 50px!important;
+    border: 1px dashed #04a2a3;
+    color: #04a2a3;
+    margin-bottom: 5px;
+}
+
+a{
+    /* -webkit-text-decoration-skip: objects; */
+    background-color: transparent;
+    color: #04a2a3;
+    text-decoration: none;
+}
+
+.text-primary{
+    color: #04a2a3!important;
+}
+
+.footer {
+    border-top: 1px solid #dee2e6;
+}
+
+
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 100%;
+}
+
+.contact-info {
+    font-size: 1.7rem;
+    margin-bottom: 5px;
+    margin-top: 15px;
+}
+</style>
