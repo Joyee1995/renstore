@@ -1,0 +1,55 @@
+<%- include('parts/html-head') %>
+<%- include('parts/nav-bar') %>
+
+<div class="container">
+
+    <div class='row'>
+      <div class ='col-md-6'>
+        <div id ='info-bar' class="alert alert-success" role="alert" style="display:none">
+          A simple success alert—check it out!
+        </div>
+      <div class="card" >
+        <div class="card-body">
+          <h5 class="card-title">登入</h5>
+          <form name='form1' onsubmit='return checkForm()'>
+            <div class="form-group">
+              <label for="account">E-mail</label>
+              <input type="text" class="form-control" id="account" name="account">
+            </div>
+
+            <div class="form-group">
+              <label for="password">password</label>
+              <input type="password" class="form-control" id="password" name="password">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+      </div>
+</div>
+</div>
+</div>
+<%- include('parts/script') %>
+<script>
+  var infoBar= $('#info-bar')
+  // infoBar.hide();
+
+
+  function checkForm(){
+  $.post('/renstore/login',$(document.form1).serialize(),function(data){
+    console.log(data);
+
+    if(data.success){
+      // location.href = '/addressbook/list'
+      infoBar.removeClass('alert-danger').addClass('alert-success').text('Successfully renewed');
+    }else {
+      infoBar.removeClass('alert-success').addClass('alert-danger').text('帳號密碼錯誤');
+    }
+    infoBar.show()
+  },'json');
+
+  return false;
+}
+
+</script>
+<%- include('parts/html-foot') %>
