@@ -4,6 +4,7 @@ const db =require(__dirname + '/__connect_db');
 app.use(express.static('public'));
 console.log(__dirname)
 app.set('view engine','ejs')
+const port = process.env.PORT || 3000
 // app.use('/ren',require(__dirname+'/script').router)
 
 // app.use((req,res,next)=>{
@@ -63,6 +64,6 @@ app.use((req,res)=>{
     res.send('404-找不到網頁');
 })
 
-app.listen(5000,function(){
-    console.log('start server 5000');
+app.listen(port,function(){
+    console.log('start server'+port);
 })
