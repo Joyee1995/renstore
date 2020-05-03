@@ -59,30 +59,7 @@ app.post('/renstore/login', (req, res) => {
             })
         } else res.json({ success: false })
     })
-    // db.queryAsync(sql, [req.body.account, req.body.password])
-    //     .then(results => {
-    //         console.log(results)
-    //         if (results && results.length === 1) {
-    //             req.session.admin = results[0];
-    //             res.json({
-    //                 success: true,
-    //                 admin: results[0]
 
-    //             })
-
-    //         } else {
-    //             console.log(results)
-    //             res.json({ success: false });
-
-    //         }
-    //     })
-    //     .catch(error => {
-    //         res.json({
-    //             success: false,
-    //             error: error
-    //         })
-
-    //     })
 })
 
 app.get('/renstore/logout', (req, res) => {
@@ -92,6 +69,10 @@ app.get('/renstore/logout', (req, res) => {
 
 app.get('/renstore/signup', (req, res) => {
     res.render('add');
+})
+
+app.get('/renstore/cart', (req, res) => {
+    res.render('cart');
 })
 
 app.post('/renstore/add', (req, res) => {

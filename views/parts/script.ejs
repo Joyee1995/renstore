@@ -1,14 +1,148 @@
 <script src="/js/jquery-3.4.1.min.js"></script>
 <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js'></script>
+<script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+
 <script>
-    // var navPosition=$('.navbar').offset().top;
-    // console.log(navPosition)
-    // $(window).scroll(function(){
-    // var scrollTop= $(this).scrollTop()
-    // if(navPosition<scrollTop){
-    //     $('.navbar').addClass('fixed_nav');
-    // }else
-    // $('.navbar').removeClass('fixed_nav');
-                 
-    // });
+    let carts = document.querySelectorAll('#-M3OmqbK04LKV28dkNB_')
+
+    let products = [
+        {
+            name: '母子鱷魚 慢跑拖',
+            tag: 'marathonshoes',
+            price: 90,
+            inCart: 0
+        },
+        {
+            name: '矽膠保鮮袋',
+            tag: 'persevationbag',
+            price: 25,
+            inCart: 0
+        },
+        {
+            name: '未來美 面膜 5s',
+            tag: 'mirae',
+            price: 30,
+            inCart: 0
+        },
+        {
+            name: '保溫菜罩',
+            tag: 'warmcover',
+            price: 9.90,
+            inCart: 0
+        },
+        {
+            name: '不鏽鋼 折疊 湯匙',
+            tag: 'spoonfork',
+            price: 9.90,
+            inCart: 0
+        },
+        {
+            name: '肥皂紙',
+            tag: 'papersoap',
+            price: 4,
+            inCart: 0
+        }
+    ]
+
+    for (let i = 0; i < carts.length; i++) {
+        carts[i].addEventListener('click', () => {
+            cartNumbers(products[i]);
+            totalCost(products[i])
+        })
+    }
+
+    function onLoadCartNumbers() {
+        let productNumbers = localStorage.getItem('cartNumbers');
+
+        if (productNumbers) {
+            document.querySelector('.cart').textContent = productNumbers;
+        }
+    }
+
+
+
+
+
+    function cartNumbers(product) {
+        let productNumbers = localStorage.getItem('cartNumbers');
+        productNumbers = parseInt(productNumbers);
+
+        if (productNumbers) {
+            localStorage.setItem('cartNumbers', productNumbers + 1)
+            document.querySelector('.cart').textContent = productNumbers + 1
+        } else {
+            localStorage.setItem('cartNumbers', 1)
+            document.querySelector('.cart').textContent = 1
+        }
+
+        setItems(product);
+    }
+
+   function setItems(product){
+      let cartItems = localStorage.getItem('productsInCart');
+      cartItems = JSON.parse(cartItems)
+
+      
+      if(cartItems!=null){
+        if(cartItems[product.tag]==undefined){
+            cartItems={
+                ...cartItems,
+                [product.tag]:product
+            }
+
+        }
+          cartItems[product.tag].inCart +=1;
+      }else{
+        product.inCart =1;
+        cartItems = {
+           [product.tag]:product
+       }
+      
+
+      }
+
+       
+       localStorage.setItem("productsInCart",JSON.stringify(cartItems))
+   }
+
+   function totalCost(product){
+    
+    let cartCost = localStorage.getItem('totalCost');
+    if(cartCost != null){
+        cartCost2 = parseInt(cartCost)
+        localStorage.setItem('totalCost',cartCost2+ product.price)
+    }else{
+        localStorage.setItem('totalCost',product.price);
+    } 
+    
+   }
+   function displayCart(){
+        let cartItems=localStorage.getItem('productsInCart');
+        cartItems = JSON.parse(cartItems);
+        let productContainer = document.querySelector('.products')
+        console.log(cartItems)
+        if (cartItems&& productContainer){
+            productContainer.innerHTML = '';
+            Object.values(cartItems).map(item=>{
+                productContainer.innerHTML += `<div class="product">
+                    <ion-icon name="close-circle-outline"></ion-icon>
+                    <img src='/img/${item.tag}.jpg'>
+                    <span>${item.name}</span>
+                    </div>
+                    <div class='price'>${item.price}</div>
+                    <div class='quantity'>
+                        <ion-icon name="arrow-down-circle-outline"></ion-icon>
+                        <span>${item.inCart}</span>
+                        <ion-icon name="arrow-up-circle-outline"></ion-icon>
+                    </div>`
+            })
+
+        }
+    }
+
+onLoadCartNumbers();
+displayCart();
+
 </script>
+
+<!-- <img src='/img/${item.tag}.jpg'> -->
