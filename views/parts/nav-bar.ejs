@@ -8,77 +8,95 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class=" icon-nav" href="/renstore"><i class="fas fa-home"></i><span>HOME</span></a>
+        <a class=" icon-nav" href="/renstore"><i class="fas fa-home" style="font-size:20px"></i><span>HOME</span></a>
       </li>
       <li class="nav-item">
-        <a class=" icon-nav" href="#"><i class="fas fa-tags"></i><span>DISCOUNT</span></a>
+        <a class=" icon-nav" href="#"><i class="fas fa-tags" style="font-size:20px"></i><span>DISCOUNT</span></a>
       </li>
     </ul>
-    <div class="d-inline-flex align-items-center  topNavbar-link">
-
-      <a href='https://www.facebook.com/%E4%BB%BB%E4%BB%A3%E8%B3%BC-106339560976944' class="icon-nav icon-admin"><i class="fa fa-facebook-official"
-          style="font-size:30px"></i>
+    <!-- <div class="d-inline-flex align-items-center  topNavbar-link"> -->
+      <ul class="navbar-nav">
+      <!-- <li class="nav-item active">
+      <a href='https://www.facebook.com/%E4%BB%BB%E4%BB%A3%E8%B3%BC-106339560976944' class="icon-nav icon-admin"><i
+          class="fa fa-facebook-official" style="font-size:30px"></i>
         <div class="icon-text">FB</div>
-      </a>
-      <a href='/renstore/login' class=" icon-nav icon-member"><i class="fas fa-user" style="font-size:30px"></i>
+      </a></li> -->
+      <% if(locals.admin){ %>
+        <li class="nav-item active">
+      <a href='/renstore/logout' class=" icon-nav icon-member"><i class="fas fa-user" style="font-size:20px"></i>
+        <div class=" icon-text">登出</div>
+      </a></li>
+      <% } else { %>
+        <li class="nav-item active">
+          <a href='/renstore/signup' class=" icon-nav icon-member"><i class="fas fa-user-plus" style="font-size:25px"></i>
+            <div class=" icon-text">注册</div>
+          </a></li>
+        <li class="nav-item active">
+      <a href='/renstore/login' class=" icon-nav icon-member"><i class="fas fa-sign-in-alt" style="font-size:25px"></i>
         <div class=" icon-text">登 入</div>
-      </a>
+      </a></li>
+    </ul>
+      <% } %>
 
 
-      </div>
-    </div>
+
+    <!-- </div> -->
+  </div>
 </nav>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&display=swap');
-body{
-    background-color: rgb(245, 244, 243);
-}
 
-.cover{
-    background-image: url(img/renlogo.jpg);
-    background-size:contain;
+  body {
+    background-color: rgb(245, 244, 243);
+  }
+
+  .cover {
+    background-image: url(img/strive.png);
+    background-size: contain;
     background-repeat: repeat;
     border: 1px solid black;
-    height:400px;
-    width:100%;
+    height: 400px;
+    width: 100%;
     position: relative;
-}
+  }
 
-.slogan{
-    background-color:rgba(0,0,0,0.2);
-    position:relative;
-    width:506px;
-    left:556px;
-    top:142px;
-    margin:0;
+  .slogan {
+    background-color: rgba(0, 0, 0, 0.2);
+    position: relative;
+    width: 506px;
+    left: 556px;
+    top: 142px;
+    margin: 0;
     padding-top: 40px;
-    
-}
-#slogan2{
-    position:relative;
-    display:inline;
-    font-size:48px;
+
+  }
+
+  #slogan2 {
+    position: relative;
+    display: inline;
+    font-size: 48px;
     font-family: fantasy;
     font-weight: 900;
-    color:black;
+    color: black;
     /* width:100%; */
-    margin:0;
-    padding:0;
-}
+    margin: 0;
+    padding: 0;
+  }
 
-.navbar{
+  .navbar {
     font-family: 'ZCOOL KuaiLe', cursive;
-}
+  }
 
-.navbar.fixed_nav{
+  .navbar.fixed_nav {
     position: fixed;
     /* bottom:0; */
-    top:0;
+    top: 0;
     /* left:10px; */
-    width: 100%;  
-    z-index: 1;          
-}
-.icon-nav {
+    width: 100%;
+    z-index: 1;
+  }
+
+  .icon-nav {
     -ms-flex-align: center;
     -ms-flex-direction: column;
     -ms-flex-pack: center;
@@ -97,48 +115,47 @@ body{
     position: relative;
     width: 55px;
     color: whitesmoke;
-}
+  }
 
-.card-img:hover {
+  .card-img:hover {
     transform: scale(1.05, 1.05);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
   }
 
   .list-group-item {
-    border-radius: 50px!important;
+    border-radius: 50px !important;
     border: 1px dashed #04a2a3;
     color: #04a2a3;
     margin-bottom: 5px;
-}
+  }
 
-a{
+  a {
     /* -webkit-text-decoration-skip: objects; */
     background-color: transparent;
     color: #04a2a3;
     text-decoration: none;
-}
+  }
 
-.text-primary{
-    color: #04a2a3!important;
-}
+  .text-primary {
+    color: #04a2a3 !important;
+  }
 
-.footer {
+  .footer {
     border-top: 1px solid #dee2e6;
-}
+  }
 
 
-.container {
+  .container {
     margin-left: auto;
     margin-right: auto;
     padding-left: 15px;
     padding-right: 15px;
     width: 100%;
-}
+  }
 
-.contact-info {
+  .contact-info {
     font-size: 1.7rem;
     margin-bottom: 5px;
     margin-top: 15px;
-}
+  }
 </style>
-
